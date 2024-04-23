@@ -53,7 +53,7 @@ const GalleryOne = () => {
           </Carousel>
         </div>
         <div className="w-full mt-auto ">
-          <h1 className="h1 mb-2 text-yellow-500">{foodImageText.title}</h1>
+          <h1 className="h1 mb-2 text-custom-pri">{foodImageText.title}</h1>
           <p className="b-one">{foodImageText.text}</p>
         </div>
       </div>

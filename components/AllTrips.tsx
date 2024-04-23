@@ -10,7 +10,7 @@ function PostCard(post: Post) {
   return (
     <section className="py-2" id="trips">
       <Link href={post.url} legacyBehavior>
-        <div className="border border-yellow-500 border-opacity-30 flex-none w-64 mr-4 rounded-lg shadow-lg  snap-always snap-center cursor-pointer">
+        <div className="border border-custom-pri border-opacity-30 flex-none w-64 mr-4 rounded-lg shadow-lg  snap-always snap-center cursor-pointer">
           <div className=" h-[28rem]">
             {/* both image and text */}
             <div className="overflow-hidden h-56 w-full object-center  ">

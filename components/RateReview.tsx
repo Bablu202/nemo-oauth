@@ -44,7 +44,7 @@ const RatingReview = () => {
               type="button"
               onClick={() => handleRatingChange(index + 1)}
               className={`text-4xl focus:outline-none ${
-                index + 1 <= rating ? "text-yellow-500" : "text-gray-300"
+                index + 1 <= rating ? "text-color-yellow" : "text-gray-300"
               }`}
             >
               &#9733;
@@ -67,7 +67,7 @@ const RatingReview = () => {
         </div>
         <button
           type="submit"
-          className="bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600"
+          className="bg-custom-pri text-white py-2 px-4 rounded-md hover:bg-custom-pri"
         >
           Submit
         </button>

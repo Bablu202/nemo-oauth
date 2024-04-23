@@ -5,9 +5,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { signInWithEmailAndPassword } from "../_actions";
 import useSupabaseClient from "lib/supabase/client";
 import toast from "react-hot-toast";
+import { signInWithEmailAndPassword } from "app/_actions";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 export const LoginForm = () => {
   const router = useRouter();
@@ -71,6 +73,7 @@ export const LoginForm = () => {
       {error && (
         <p className="text-center bg-red-300 py-4 mb-6 rounded">{error}</p>
       )}
+
       <div className="mb-6">
         <input
           type="email"
@@ -99,31 +102,31 @@ export const LoginForm = () => {
       </div>
       <button
         type="submit"
-        style={{ backgroundColor: `${isPending ? "#ccc" : "#3446eb"}` }}
+        style={{ backgroundColor: `${isPending ? "#0D0D0D" : "#033E8C"}` }}
         className="inline-block px-7 py-4 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
         disabled={isPending}
       >
         {isPending ? "loading..." : "Sign In"}
       </button>
-
       <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
         <p className="text-center font-semibold mx-4 mb-0">OR</p>
       </div>
-
       <a
         className="px-7 py-2 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
-        style={{ backgroundColor: "#3b5998" }}
+        style={{ backgroundColor: "#033E8C" }}
         onClick={loginWithGoogle}
         role="button"
       >
+        <FcGoogle className="text-3xl mr-5" />
         Continue with Google
       </a>
       <a
-        className="px-7 py-2 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
-        style={{ backgroundColor: "#55acee" }}
+        className="px-7 py-2 mb-6 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
+        style={{ backgroundColor: "#033E8C" }}
         onClick={loginWithGitHub}
         role="button"
       >
+        <FaGithub className="text-3xl mr-5" />
         Continue with GitHub
       </a>
     </form>

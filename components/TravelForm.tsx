@@ -1,6 +1,6 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
-import { getSupabaseBrowserClient } from "lib/supabase/client";
+import supabase from "lib/supabase/supabase";
 
 interface FormData {
   email: string;
@@ -27,7 +27,7 @@ const TravelForm = () => {
     // You can handle form submission here, e.g., send data to backend
     console.log(formData);
     try {
-      const { data, error } = await getSupabaseBrowserClient
+      const { data, error } = await supabase
         .from("nemo_registerForm")
         .insert([formData]);
       if (error) {
@@ -70,9 +70,9 @@ const TravelForm = () => {
               onChange={handleChange}
               required
               className="w-full text-xl font-light border rounded-md 
-              appearance-none block  bg-yellow-500 bg-opacity-30 
-               border-yellow-500  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-yellow-500"
+              appearance-none block  bg-custom-pri bg-opacity-30 
+               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+                focus:bg-white focus:border-custom-pri"
             />
           </div>
           <div className="mb-4">
@@ -87,9 +87,9 @@ const TravelForm = () => {
               onChange={handleChange}
               required
               className="w-full text-xl font-bold border rounded-md 
-              appearance-none block  bg-yellow-500 bg-opacity-30 
-               border-yellow-500  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-yellow-500"
+              appearance-none block  bg-custom-pri bg-opacity-30 
+               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+                focus:bg-white focus:border-custom-pri"
             />
           </div>
           <div className="mb-4">
@@ -104,9 +104,9 @@ const TravelForm = () => {
               onChange={handleChange}
               required
               className="w-full text-xl font-bold border rounded-md 
-              appearance-none block  bg-yellow-500 bg-opacity-30 
-               border-yellow-500  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-yellow-500"
+              appearance-none block  bg-custom-pri bg-opacity-30 
+               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+                focus:bg-white focus:border-custom-pri"
             />
           </div>
           <div className="mb-4">
@@ -121,14 +121,14 @@ const TravelForm = () => {
               onChange={handleChange}
               required
               className="w-full text-xl font-light border rounded-md 
-              appearance-none block  bg-yellow-500 bg-opacity-30 
-               border-yellow-500  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-yellow-500"
+              appearance-none block  bg-custom-pri bg-opacity-30 
+               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+                focus:bg-white focus:border-custom-pri"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-yellow-500 text-xl font-bold text-white py-2 rounded-md 
+            className="w-full bg-custom-pri text-xl font-bold text-white py-2 rounded-md 
              hover:bg-yellow-600 "
           >
             Submit
@@ -147,14 +147,14 @@ const TravelForm = () => {
           {faqs.map((faq) => (
             <div
               key={faq.id}
-              className="border border-yellow-500 rounded-lg shadow-lg p-6 mb-4"
+              className="border border-custom-pri rounded-lg shadow-lg p-6 mb-4"
             >
               <h3 className="text-lg font-semibold mb-2 ">{faq.question}</h3>
               <p className="">{faq.answer}</p>
             </div>
           ))}
         </div>
-        <a className="bg-yellow-500 w-1 lg:hidden rounded-3xl" href="#review" />
+        <a className="bg-custom-pri w-1 lg:hidden rounded-3xl" href="#review" />
       </div>
     </section>
   );
