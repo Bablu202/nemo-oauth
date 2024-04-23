@@ -1,0 +1,65 @@
+import { GiFlyingFlag } from "react-icons/gi";
+import { IconType } from "react-icons/lib";
+
+const AboutNemoPage = () => {
+  return (
+    <section className="py-8 " id="magazine">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-left mb-8 flex items-center">
+          <GiFlyingFlag className="w-8 h-8 text-yellow-500 mb-4 mr-5" />
+          Travel Quality
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {travelQuality.map((item: TravelQuality) => (
+            <div key={item.id} className="flex flex-col items-center">
+              <item.icon className="w-16 h-16 text-yellow-500 mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-left">{item.text}</p>
+              <span className="border-b w-80 border-b-yellow-500 border-opacity-30" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutNemoPage;
+
+import { GrUserExpert } from "react-icons/gr";
+import { FaPersonWalkingLuggage } from "react-icons/fa6";
+import { BsLuggageFill } from "react-icons/bs";
+import { FaBed } from "react-icons/fa";
+export interface TravelQuality {
+  id: string;
+  icon: IconType; // Adjust the prop type as needed
+  title: string;
+  text: string;
+}
+
+const travelQuality: TravelQuality[] = [
+  {
+    id: "1",
+    icon: GrUserExpert,
+    title: "Experts on Tour",
+    text: "Discover the world confidently with our seasoned tour experts. Guiding you through unforgettable experiences, our professionals enrich every moment with insight.",
+  },
+  {
+    id: "2",
+    icon: FaPersonWalkingLuggage,
+    title: "Comfortable Transport",
+    text: "Experience unparalleled comfort with our deluxe transportation services. From plush seating to attentive amenities, travel in style and relaxation.",
+  },
+  {
+    id: "3",
+    icon: FaBed,
+    title: "Quality Accommodation",
+    text: "Elevate your experience with our top-tier accommodations, curated for utmost comfort and luxury. Indulge in unparalleled quality during your stay.",
+  },
+  {
+    id: "4",
+    icon: BsLuggageFill,
+    title: "Find the right luggage",
+    text: "Travel effortlessly with our selection of premium luggage tailored to your journey. Discover the perfect blend of style and functionality for every adventure.",
+  },
+];
