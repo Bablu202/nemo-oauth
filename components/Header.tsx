@@ -25,12 +25,12 @@ const Header: React.FC = () => {
   return (
     <div className=" flex justify-between pb-20 lg:py-6">
       <div
-        className={`fixed backdrop-blur-md top-0 left-0 w-full border-b border-opacity-20 border-b-yellow-400 lg:py-4 lg:backdrop-blur-sm`}
+        className={`fixed backdrop-blur-md top-0 left-0 w-full border-b border-opacity-20 border-b-custom-sec lg:py-4 lg:backdrop-blur-sm`}
       >
         <div className="px-5 lg:px-8 xl:px-10 max-lg:py-4">
-          {/* <a className="block text-2xl lg:text-2xl font-normal xl:text-3xl xl:mr-8">
+          <a className="block text-2xl lg:text-2xl font-normal xl:text-3xl xl:mr-8">
             Travelling <span className="text-custom-pri font-bold">NEMO</span>
-          </a> */}
+          </a>
         </div>
       </div>
       <nav
