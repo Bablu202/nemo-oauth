@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ["unsplash.com"],
   },
   experimental: {
-    // appDir: true,
+    appDir: true,
   },
 };
 
