@@ -8,7 +8,7 @@ export default async function ProfilePage() {
   } = await getUserSession();
 
   if (!session) {
-    return redirect("/login");
+    return redirect("/user");
   }
 
   const user = session.user;
@@ -16,7 +16,6 @@ export default async function ProfilePage() {
   return (
     <section className="flex justify-center">
       <div className="max-w-md w-full mt-8 bg-white shadow-md rounded-lg overflow-hidden">
-      
         <div className="px-6 py-4 flex items-center">
           <div>
             <div className="font-bold text-xl mb-2">Profile Information</div>
