@@ -129,7 +129,7 @@ const TravelForm = () => {
           <button
             type="submit"
             className="w-full bg-custom-pri text-xl font-bold text-white py-2 rounded-md 
-             hover:bg-yellow-600 "
+             hover:bg-custom-sec "
           >
             Submit
           </button>
