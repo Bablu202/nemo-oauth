@@ -65,7 +65,7 @@ export default function AllTrips() {
     <div className="w-full mx-5 lg:mx-10">
       <h2 className="text-3xl font-bold text-left ">Trips we offer..</h2>
       <a href="#" className=" text-center   ">
-        Tap ME, We will soon contact you Personally..!
+        Fill the from, We will soon contact you Personally..!
       </a>
       <div className=" overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory">
         <div className="flex">
