@@ -7,7 +7,11 @@ const nextConfig = {
   experimental: {
     serverComponents: true,
     appDir: true,
+    serverActions: true, // Enable Server Actions
+
   },
 };
 
 export default withContentlayer(nextConfig);
+``;
+,
