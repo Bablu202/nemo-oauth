@@ -1,13 +1,13 @@
+import AllTrips from "@components/AllTrips";
+import Footer from "@components/Footer";
 import TravelForm from "@components/TravelForm";
-import React from "react";
 
 const Home = () => {
   return (
     <div>
-      Landing Page
-      <div>
-        <TravelForm />
-      </div>
+      <AllTrips />
+      <TravelForm />
+      <Footer />
     </div>
   );
 };

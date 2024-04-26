@@ -5,8 +5,8 @@ function page() {
   return (
     <div>
       <AllTrips />
-      <Footer />
       <TravelForm />
+      <Footer />
     </div>
   );
 }
