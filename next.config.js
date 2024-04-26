@@ -6,7 +6,7 @@ const nextConfig = {
   },
   experimental: {
     serverComponents: true,
-    appDir: true,
+    // appDir: true,
   },
 };
 
