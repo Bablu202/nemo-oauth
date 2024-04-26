@@ -1,3 +1,4 @@
+"use server";
 import createSupabaseServerClient from "lib/supabase/server";
 import { CreateUserInput, LoginUserInput } from "lib/user-schema";
 
