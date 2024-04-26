@@ -5,6 +5,7 @@ const nextConfig = {
     domains: ["unsplash.com"],
   },
   experimental: {
+    serverComponents: true,
     appDir: true,
   },
 };
