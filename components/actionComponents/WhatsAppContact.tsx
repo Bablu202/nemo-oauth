@@ -14,13 +14,15 @@ const WhatsAppButtonContact: React.FC = () => {
   };
 
   return (
-    <div
-      className="z-10 fixed bottom-16 right-6 bg-color-green bg-opacity-80 text-white w-12 h-12 rounded-full 
+    <section className="max-w-6xl flex m-auto lg:hidden">
+      <div
+        className="z-10 fixed bottom-16 right-6 bg-color-green bg-opacity-80 text-white w-12 h-12 rounded-full 
       flex justify-center items-center cursor-pointer hover:bg-opacity-100"
-      onClick={handleClick}
-    >
-      <AiOutlineWhatsApp className="text-3xl" />
-    </div>
+        onClick={handleClick}
+      >
+        <AiOutlineWhatsApp className="text-3xl" />
+      </div>
+    </section>
   );
 };
 

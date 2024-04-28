@@ -23,7 +23,7 @@ export default function RootLayout({
         <main>
           <Header />
           {children}
-          {/* <WhatsAppButtonContact /> */}
+          <WhatsAppButtonContact />
           {/* <Footer /> */}
         </main>
       </body>

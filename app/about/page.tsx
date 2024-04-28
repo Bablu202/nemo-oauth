@@ -5,11 +5,8 @@ import React from "react";
 const About = () => {
   return (
     <div>
-      Aboutus
-      <div>
-        <AboutNemoPage />
-        <RatingReview />
-      </div>
+      <AboutNemoPage />
+      <RatingReview />
     </div>
   );
 };
