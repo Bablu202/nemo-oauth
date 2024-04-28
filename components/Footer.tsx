@@ -9,7 +9,7 @@ const Footer = () => {
             <h3 className="text-base sm:text-xl lg:text-2xl">
               Follow us for more events & things...
             </h3>
-            <p className="">&copy; 2024. All rights are Reserved</p>
+            <p className="">&copy; 2024.All rights are Reserved</p>
           </div>
 
           <div className="flex justify-center text-center gap-2">
