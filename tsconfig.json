@@ -33,7 +33,8 @@
     ".contentlayer/generated",
     ".next/types/**/*.ts",
     "constants/index.ts",
-    "app/auth/google/callback.js"
+    "app/auth/google/callback.js",
+    "webpack.config.js"
   ],
   "exclude": ["node_modules"]
 }

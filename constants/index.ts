@@ -214,3 +214,46 @@ export const footerContent: FooterContent[] = [
   { id: "5", logo: "PiTwitchLogo", title: "", url: "", isText: false },
   { id: "6", logo: "PiDiscordLogoLight", title: "", url: "", isText: false },
 ];
+
+interface HighlightSlide {
+  id: number;
+  textLists: string[];
+  video: string; // Assuming the video path is a string
+  videoDuration: number;
+}
+
+const firstVideo = "https://www.pexels.com/download/video/4713259/";
+export const hightlightsSlides: HighlightSlide[] = [
+  {
+    id: 1,
+    textLists: [
+      "Enter A17 Pro.",
+      "Game-changing chip.",
+      "Groundbreaking performance.",
+    ],
+    video: firstVideo,
+    videoDuration: 4,
+  },
+  {
+    id: 2,
+    textLists: ["Titanium.", "So strong. So light. So Pro."],
+    video: firstVideo,
+    videoDuration: 5,
+  },
+  {
+    id: 3,
+    textLists: [
+      "iPhone 15 Pro Max has the",
+      "longest optical zoom in",
+      "iPhone ever. Far out.",
+    ],
+    video: firstVideo,
+    videoDuration: 2,
+  },
+  {
+    id: 4,
+    textLists: ["All-new Action button.", "What will yours do?."],
+    video: firstVideo,
+    videoDuration: 3.63,
+  },
+];

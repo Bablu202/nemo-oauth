@@ -54,107 +54,112 @@ const TravelForm = () => {
   };
 
   return (
-    <section className="px-5 flex flex-col lg:flex-row" id="contact">
-      <div className="container max-w-md mx-atuo  lg:mr-auto mb-8">
-        <h2 className="text-2xl font-bold text-center mb-4">Travel Form</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="email" className="block mb-2">
-              Email Address:
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full text-xl font-light border rounded-md 
+    <section className="max-w-6xl flex m-auto">
+      <div className="px-5 flex flex-col lg:flex-row" id="contact">
+        <div className="container max-w-md mx-atuo  lg:mr-auto mb-8">
+          <h2 className="text-2xl font-bold text-center mb-4">Travel Form</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label htmlFor="email" className="block mb-2">
+                Email Address:
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full text-xl font-light border rounded-md 
               appearance-none block  bg-custom-pri bg-opacity-30 
-               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-custom-pri"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="mobileNumber" className="block mb-2">
-              Mobile Number:
-            </label>
-            <input
-              type="tel"
-              id="mobileNumber"
-              name="mobileNumber"
-              value={formData.mobileNumber}
-              onChange={handleChange}
-              required
-              className="w-full text-xl font-bold border rounded-md 
-              appearance-none block  bg-custom-pri bg-opacity-30 
-               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-custom-pri"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="name" className="block mb-2">
-              Name:
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full text-xl font-bold border rounded-md 
-              appearance-none block  bg-custom-pri bg-opacity-30 
-               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-custom-pri"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="dob" className="block mb-2">
-              Date of Birth:
-            </label>
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              value={formData.dob}
-              onChange={handleChange}
-              required
-              className="w-full text-xl font-light border rounded-md 
-              appearance-none block  bg-custom-pri bg-opacity-30 
-               border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-                focus:bg-white focus:border-custom-pri"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-custom-pri text-xl font-bold text-white py-2 rounded-md 
-             hover:bg-custom-sec "
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-      {/* faqs */}
-      <div className="flex flex-row" id="faqs">
-        <div
-          className="container -ml-8 lg:mx-auto px-4 py-8 overflow-y-auto "
-          style={{ maxHeight: "80vh" }}
-        >
-          <h3 className="text-xl font-semibold mb-2">
-            Frequently asked questions..
-          </h3>
-          {faqs.map((faq) => (
-            <div
-              key={faq.id}
-              className="border border-custom-pri rounded-lg shadow-lg p-6 mb-4"
-            >
-              <h3 className="text-lg font-semibold mb-2 ">{faq.question}</h3>
-              <p className="">{faq.answer}</p>
+              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+              focus:bg-white focus:border-custom-pri"
+              />
             </div>
-          ))}
+            <div className="mb-4">
+              <label htmlFor="mobileNumber" className="block mb-2">
+                Mobile Number:
+              </label>
+              <input
+                type="tel"
+                id="mobileNumber"
+                name="mobileNumber"
+                value={formData.mobileNumber}
+                onChange={handleChange}
+                required
+                className="w-full text-xl font-bold border rounded-md 
+              appearance-none block  bg-custom-pri bg-opacity-30 
+              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+              focus:bg-white focus:border-custom-pri"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="name" className="block mb-2">
+                Name:
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full text-xl font-bold border rounded-md 
+              appearance-none block  bg-custom-pri bg-opacity-30 
+              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+              focus:bg-white focus:border-custom-pri"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="dob" className="block mb-2">
+                Date of Birth:
+              </label>
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                value={formData.dob}
+                onChange={handleChange}
+                required
+                className="w-full text-xl font-light border rounded-md 
+              appearance-none block  bg-custom-pri bg-opacity-30 
+              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
+              focus:bg-white focus:border-custom-pri"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-custom-pri text-xl font-bold text-white py-2 rounded-md 
+            hover:bg-custom-sec "
+            >
+              Submit
+            </button>
+          </form>
         </div>
-        <a className="bg-custom-pri w-1 lg:hidden rounded-3xl" href="#review" />
+        {/* faqs */}
+        <div className="flex flex-row" id="faqs">
+          <div
+            className="container -ml-8 lg:mx-auto px-4 py-8 overflow-y-auto "
+            style={{ maxHeight: "80vh" }}
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              Frequently asked questions..
+            </h3>
+            {faqs.map((faq) => (
+              <div
+                key={faq.id}
+                className="border border-custom-pri rounded-lg shadow-lg p-6 mb-4"
+              >
+                <h3 className="text-lg font-semibold mb-2 ">{faq.question}</h3>
+                <p className="">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+          <a
+            className="bg-custom-pri w-1 lg:hidden rounded-3xl"
+            href="#review"
+          />
+        </div>
       </div>
     </section>
   );

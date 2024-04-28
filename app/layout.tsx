@@ -20,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <WhatsAppButtonContact />
-        {/* <Footer /> */}
+        <main>
+          <Header />
+          {children}
+          {/* <WhatsAppButtonContact /> */}
+          {/* <Footer /> */}
+        </main>
       </body>
     </html>
   );
