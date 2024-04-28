@@ -127,11 +127,6 @@ export const navigationData: NavigationItem[] = [
     url: "/trips",
   },
   {
-    id: "2",
-    title: "Gallery",
-    url: "/gallery",
-  },
-  {
     id: "3",
     title: "About us",
     url: "/about",
