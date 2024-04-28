@@ -84,7 +84,7 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
 }) => {
   return (
     <div
-      className={`absolute top-6 right-4 z-10 w-10 h-5 lg:hidden cursor-pointer ${
+      className={`z-10 absolute top-6 right-4 w-10 h-5 lg:hidden cursor-pointer ${
         openNavigation ? "-mt-2" : ""
       }`}
       onClick={onClick}
