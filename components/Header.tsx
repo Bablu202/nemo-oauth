@@ -24,9 +24,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="sticky top-0 max-w-6xl flex m-auto border-b border-opacity-20 border-b-custom-sec ">
-      <div
-        className={` flex flex-col backdrop-blur-md  top-0 left-0 w-full  lg:py-4`}
-      >
+      <div className={` flex backdrop-blur-md  top-0 left-0 w-full  lg:py-4`}>
         <div className="px-5 lg:px-8 xl:px-10 max-lg:py-4">
           <a className="block text-2xl lg:text-2xl font-normal xl:text-3xl xl:mr-8">
             Travelling <span className="text-custom-pri font-bold">NEMO</span>
@@ -84,7 +82,7 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
 }) => {
   return (
     <div
-      className={`z-10 absolute top-6 right-4 w-10 h-5 lg:hidden cursor-pointer ${
+      className={`z-10 fixed  top-6 right-4 w-10 h-5 lg:hidden cursor-pointer ${
         openNavigation ? "-mt-2 " : ""
       }`}
       onClick={onClick}
