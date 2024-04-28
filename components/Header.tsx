@@ -4,7 +4,7 @@ import { useState } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 const Header: React.FC = () => {
-  const [openNavigation, setOpenNavigation] = useState(true);
+  const [openNavigation, setOpenNavigation] = useState(false);
   const toggleNavigation = () => {
     if (openNavigation) {
       setOpenNavigation(false);
