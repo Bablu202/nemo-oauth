@@ -45,7 +45,7 @@ function PostCard(post: Post) {
                     </time>
                   </div>
                 </div>
-                <div className="mt-auto">
+                <div className="mt-auto text-sm">
                   <p>
                     <strong>Duration:</strong> {post.duration}
                   </p>
@@ -72,7 +72,7 @@ export default function AllTrips() {
 
   return (
     <section className="max-w-6xl flex m-auto">
-      <div className="w-full mx-5 lg:mx-10">
+      <div className="w-full">
         <h2 className="text-3xl font-bold text-left ">Trips we offer..</h2>
         <a href="#" className=" text-center   ">
           Fill the from, We will soon contact you Personally..!

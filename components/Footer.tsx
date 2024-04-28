@@ -3,28 +3,30 @@ import { IconType } from "react-icons/lib";
 const Footer = () => {
   return (
     <footer className="bg-custom-sec py-0 mt-5 w-full z-5">
-      <div className="flex flex-col text-white text-center mx-5 lg:flex lg:flex-row lg:justify-between lg:mx-10">
-        <div className="flex flex-col">
-          <h3 className="text-base sm:text-xl lg:text-2xl">
-            Follow us for more events & things...
-          </h3>
-          <p className="">&copy; 2024. All rights are Reserved</p>
-        </div>
+      <section className="max-w-6xl m-auto">
+        <div className="flex flex-col text-white text-center mx-5 lg:flex lg:flex-row lg:justify-between lg:mx-10">
+          <div className="flex flex-col">
+            <h3 className="text-base sm:text-xl lg:text-2xl">
+              Follow us for more events & things...
+            </h3>
+            <p className="">&copy; 2024. All rights are Reserved</p>
+          </div>
 
-        <div className="flex justify-center text-center gap-2">
-          {footerContent.map((item: FooterContent) => (
-            <a key={item.id} href={item.url} className="mx-2">
-              {item.isText ? (
-                <span className="text-lg">{item.title}</span>
-              ) : (
-                <div className="text-4xl lg:text-5xl">
-                  {item.logo && <item.logo />}
-                </div>
-              )}
-            </a>
-          ))}
+          <div className="flex justify-center text-center gap-2">
+            {footerContent.map((item: FooterContent) => (
+              <a key={item.id} href={item.url} className="mx-2">
+                {item.isText ? (
+                  <span className="text-lg">{item.title}</span>
+                ) : (
+                  <div className="text-4xl lg:text-5xl">
+                    {item.logo && <item.logo />}
+                  </div>
+                )}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
     </footer>
   );
 };

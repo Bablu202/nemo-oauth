@@ -35,29 +35,31 @@ const GalleryOne = () => {
 
   const [foodImageText] = landingPageTitles.filter((obj) => obj.id === "3");
   return (
-    <div className="p-2">
-      <div className="flex flex-col lg:flex-row ">
-        <div className="m-1 pr-4 w-full">
-          <Carousel>
-            {foodImages.map((s, i) => (
-              <Image
-                key={i}
-                src={s}
-                alt="img"
-                width={300}
-                height={300}
-                layout="responsive"
-                priority
-              />
-            ))}
-          </Carousel>
-        </div>
-        <div className="w-full mt-auto ">
-          <h1 className="h1 mb-2 text-custom-pri">{foodImageText.title}</h1>
-          <p className="b-one">{foodImageText.text}</p>
+    <section className="max-w-6xl flex m-auto">
+      <div className="p-2">
+        <div className="flex flex-col lg:flex-row ">
+          <div className="m-1 pr-4 w-full">
+            <Carousel>
+              {foodImages.map((s, i) => (
+                <Image
+                  key={i}
+                  src={s}
+                  alt="img"
+                  width={300}
+                  height={300}
+                  layout="responsive"
+                  priority
+                />
+              ))}
+            </Carousel>
+          </div>
+          <div className="w-full mt-auto ">
+            <h1 className="h1 mb-2 text-custom-pri">{foodImageText.title}</h1>
+            <p className="b-one">{foodImageText.text}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

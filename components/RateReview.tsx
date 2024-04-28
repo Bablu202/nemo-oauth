@@ -31,7 +31,7 @@ const RatingReview = () => {
   };
 
   return (
-    <section id="review" className="container mx-auto px-4 py-8">
+    <section id="review" className="px-4 py-8 max-w-6xl m-auto">
       <h2 className="text-2xl font-bold mb-4">
         Rate and Review your experience..
       </h2>

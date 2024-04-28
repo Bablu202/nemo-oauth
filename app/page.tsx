@@ -7,7 +7,7 @@ function page() {
     <div>
       <AllTrips />
       <TravelForm />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
