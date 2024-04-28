@@ -4,7 +4,7 @@ import { useState } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 const Header: React.FC = () => {
-  const [openNavigation, setOpenNavigation] = useState(false);
+  const [openNavigation, setOpenNavigation] = useState(true);
   const toggleNavigation = () => {
     if (openNavigation) {
       setOpenNavigation(false);
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
           onClick={handleClick}
           className={` z-2 flex flex-col justify-center gap-5 m-auto lg:flex-row ${
             openNavigation
-              ? "w-full h-full bg-custom-pri bg-opacity-20 backdrop-blur-lg "
+              ? "w-full h-full bg-custom-sec bg-opacity-80 text-right text-white backdrop-blur-lg "
               : "w-max"
           }`}
         >
@@ -85,13 +85,13 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
   return (
     <div
       className={`z-10 absolute top-6 right-4 w-10 h-5 lg:hidden cursor-pointer ${
-        openNavigation ? "-mt-2" : ""
+        openNavigation ? "-mt-2 " : ""
       }`}
       onClick={onClick}
     >
       <div
         className={`fixed border border-custom-pri w-8 transition-all ${
-          openNavigation ? "origin-center rotate-45 mt-4" : ""
+          openNavigation ? " rotate-45 mt-4 border-white" : ""
         }`}
       />
       <div
@@ -101,7 +101,7 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
       />
       <div
         className={`fixed border border-custom-pri w-8 mt-4 transition-all ${
-          openNavigation ? "origin-center -rotate-45 mt-2" : ""
+          openNavigation ? "-rotate-45 mt-2 border-white" : ""
         }`}
       />
     </div>
