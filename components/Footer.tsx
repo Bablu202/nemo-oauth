@@ -2,7 +2,7 @@ import { IconType } from "react-icons/lib";
 
 const Footer = () => {
   return (
-    <footer className="bg-custom-sec py-0 mt-5 w-full z-5">
+    <footer className="bg-custom-pri p-2.5 mt-5 w-full">
       <section className="max-w-6xl m-auto">
         <div className="flex flex-col text-white text-center mx-5 lg:flex lg:flex-row lg:justify-between lg:mx-10">
           <div className="flex flex-col">
@@ -18,7 +18,7 @@ const Footer = () => {
                 {item.isText ? (
                   <span className="text-lg">{item.title}</span>
                 ) : (
-                  <div className="text-4xl lg:text-5xl">
+                  <div className="mt-2 text-2xl lg:text-2xl cursor-pointer hover:text-custom-sec hover:shadow-2xl">
                     {item.logo && <item.logo />}
                   </div>
                 )}

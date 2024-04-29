@@ -3,18 +3,22 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
+import { MdTravelExplore } from "react-icons/md";
+import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
+import { HiCurrencyRupee } from "react-icons/hi";
+import { FaCalendarDays } from "react-icons/fa6";
 
 function PostCard(post: Post) {
   const Content = getMDXComponent(post.body.code);
 
   return (
-    <section className="py-2" id="trips">
+    <section className="py-4" id="trips">
       <Link href={post.url} legacyBehavior>
-        <div className="cursor-pointer">
-          <div className="z-[-1] relative border  border-custom-pri border-opacity-30 mr-4 rounded-lg shadow-lg snap-always snap-center  overflow-hidden">
-            <div className="w-80 h-60 container ">
+        <div className="cursor-pointer px-4 py-3">
+          <div className="z-[-1] relative border  border-custom-pri border-opacity-30 mr-4 rounded-lg shadow-2xl snap-always snap-center  overflow-hidden">
+            <div className="w-96 h-60 container ">
               <Image
-                className="rounded-t-lg object-fill "
+                className="rounded-t-lg object-fill"
                 src={post.imageURL}
                 alt="Trip Image"
                 layout="fill"
@@ -28,33 +32,36 @@ function PostCard(post: Post) {
                 <div className="absolute bottom-0 bg-gradient-to-t from-black/90 to-transparent w-full h-16" />
 
                 {/* both image and text */}
-                <div className="p-2 absolute flex flex-col w-full h-full">
+                <div className="p-2.5 absolute flex flex-col w-full h-full">
                   <div className="flex justify-between">
-                    <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2 flex items-center gap-4">
+                      <MdTravelExplore />
+                      {post.title}
+                    </h3>
                     <div className="flex flex-col ">
                       <time
                         dateTime={post.startDate}
-                        className="mb-1 text-xs text-gray-100"
+                        className="mb-1 text-sm flex items-center gap-2"
                       >
+                        <GiAirplaneDeparture />
                         {format(parseISO(post.startDate), "LLLL d, yyyy")}
                       </time>
                       <time
                         dateTime={post.returnDate}
-                        className=" mb-1 text-xs text-gray-100 mr-auto"
+                        className=" mb-1 text-sm flex items-center gap-2"
                       >
+                        <GiAirplaneArrival />
                         {format(parseISO(post.returnDate), "LLLL d, yyyy")}
                       </time>
                     </div>
                   </div>
-                  <div className="mt-auto text-sm">
-                    <p>
-                      <strong>Duration:</strong> {post.duration}
+                  <div className="mt-auto text-base">
+                    <p className="flex items-center gap-4">
+                      <FaCalendarDays /> {post.duration} Days
                     </p>
-                    <p>
-                      <strong>Status:</strong> {post.status}
-                    </p>
-                    <p>
-                      <strong>Price:</strong> {post.price}
+                    <p className="flex items-center gap-4">
+                      <HiCurrencyRupee />
+                      {post.price}
                     </p>
                   </div>
                 </div>
@@ -66,7 +73,7 @@ function PostCard(post: Post) {
     </section>
   );
 }
-
+import { FaMapSigns } from "react-icons/fa";
 export default function AllTrips() {
   const posts = allPosts.sort((b, a) =>
     compareDesc(new Date(a.startDate), new Date(b.startDate))
@@ -75,8 +82,11 @@ export default function AllTrips() {
   return (
     <section className="max-w-6xl flex m-auto">
       <div className="w-full">
-        <h2 className="text-3xl font-bold text-left ">Trips we offer..</h2>
-        <a href="#" className=" text-center   ">
+        <h2 className="text-3xl font-bold text-left flex justify-center items-center gap-4">
+          <FaMapSigns />
+          Trips we offer..
+        </h2>
+        <a href="#" className="p-2">
           Fill the from, We will soon contact you Personally..!
         </a>
         <div className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory">

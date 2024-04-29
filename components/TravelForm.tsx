@@ -54,9 +54,9 @@ const TravelForm = () => {
   };
 
   return (
-    <section className="max-w-6xl flex m-auto">
+    <section className="max-w-6xl flex m-auto ">
       <div className="px-5 flex flex-col lg:flex-row" id="contact">
-        <div className="container max-w-md mx-atuo  lg:mr-auto mb-8">
+        <div className="container p-4 sm:p-2 m-atuo  lg:mr-auto mb-8">
           <h2 className="text-2xl font-bold text-center mb-4">Travel Form</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">

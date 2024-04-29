@@ -26,7 +26,7 @@ const VideoCarousel: React.FC = () => {
   const [video, setVideo] = useState<Video>({
     isEnd: false,
     startPlay: false,
-    videoId: 2,
+    videoId: 1,
     isLastVideo: false,
     isPlaying: false,
   });

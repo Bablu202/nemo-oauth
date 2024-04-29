@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import { GiClownfish } from "react-icons/gi";
 
 const Header: React.FC = () => {
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -27,7 +28,11 @@ const Header: React.FC = () => {
       <div className={` flex backdrop-blur-md  top-0 left-0 w-full  lg:py-4`}>
         <div className="px-5 lg:px-8 xl:px-10 max-lg:py-4">
           <a className="block text-2xl lg:text-2xl font-normal xl:text-3xl xl:mr-8">
-            Travelling <span className="text-custom-pri font-bold">NEMO</span>
+            <p className="flex items-center gap-2">
+              <GiClownfish className="text-6xl text-custom-sec" />
+              Travelling
+              <span className="text-custom-pri font-bold"> NEMO</span>
+            </p>
           </a>
         </div>
       </div>
@@ -38,7 +43,7 @@ const Header: React.FC = () => {
       >
         <div
           onClick={handleClick}
-          className={` z-2 flex flex-col justify-center gap-5 m-auto lg:flex-row ${
+          className={`z-2 flex flex-col justify-center gap-5 m-auto  lg:flex-row ${
             openNavigation
               ? "w-full h-full bg-custom-sec bg-opacity-80 text-right text-white backdrop-blur-lg "
               : "w-max"
@@ -47,7 +52,7 @@ const Header: React.FC = () => {
           {navigationData.map((item: NavigationItem) => (
             <Link
               key={item.id}
-              className={`relative font-bold text-center text-4xl lg:font-normal lg:text-xl xl:text-2xl
+              className={`relative font-bold text-center text-4xl  lg:text-base lg:font-semibold
                tracking-wide px-20 py-2 transition-colors hover:text-custom-pri lg:pt-0 lg:mx-4 lg:p-0 ${
                  false ? "text-custom-pri underline underline-offset-4" : ""
                } ${item?.onlyMobile && "lg:hidden"}`}
@@ -62,7 +67,7 @@ const Header: React.FC = () => {
         onClick={toggleNavigation}
         openNavigation={openNavigation}
       />
-      <div className="hidden z-20 mr-6 cursor-pointer lg:block">
+      <div className="hidden z-20  cursor-pointer lg:block">
         {/* TODO:account info */}
       </div>
     </div>
