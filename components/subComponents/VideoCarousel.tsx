@@ -26,7 +26,7 @@ const VideoCarousel: React.FC = () => {
   const [video, setVideo] = useState<Video>({
     isEnd: false,
     startPlay: false,
-    videoId: 0,
+    videoId: 2,
     isLastVideo: false,
     isPlaying: false,
   });
@@ -59,6 +59,8 @@ const VideoCarousel: React.FC = () => {
   useEffect(() => {
     let currentProgress = 0;
     let span = videoSpanRef.current;
+    console.log(span);
+    console.log(video);
 
     if (span[videoId]) {
       let anim = gsap.to(span[videoId], {
@@ -112,7 +114,7 @@ const VideoCarousel: React.FC = () => {
         gsap.ticker.remove(animUpdate);
       }
     }
-  }, [videoId, startPlay, isPlaying]);
+  }, [videoId, startPlay, isPlaying, video]);
 
   useEffect(() => {
     if (loadedData.length > 3) {
@@ -159,14 +161,14 @@ const VideoCarousel: React.FC = () => {
             <div className="video-carousel_container">
               <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
                 <video
-                  id={`video${i}`}
+                  id="video"
                   playsInline={true}
                   className={`${
                     list.id === 2 && "translate-x-44"
                   } pointer-events-none`}
                   preload="auto"
                   muted
-                  ref={(el: HTMLVideoElement | null) => {
+                  ref={(el: HTMLVideoElement) => {
                     if (el) {
                       videoRef.current[i] = el;
                     }
@@ -203,7 +205,7 @@ const VideoCarousel: React.FC = () => {
             <span
               key={i}
               className="mx-2 w-1 h-1 bg-custom-sec rounded-full relative cursor-pointer"
-              ref={(el: HTMLVideoElement | null) => {
+              ref={(el: HTMLVideoElement) => {
                 if (el) {
                   videoRef.current[i] = el;
                 }
@@ -211,7 +213,7 @@ const VideoCarousel: React.FC = () => {
             >
               <span
                 className="absolute h-full w-full rounded-full"
-                ref={(el: HTMLVideoElement | null) => {
+                ref={(el: HTMLVideoElement) => {
                   if (el) {
                     videoRef.current[i] = el;
                   }

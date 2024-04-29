@@ -18,7 +18,7 @@ const Highlights: React.FC = () => {
     >
       <div className="screen-max-width">
         <div className="mb-12 w-full md:flex justify-between">
-          <h1 id="title" className="section-heading">
+          <h1 id="title" className="text-xl">
             Get the highlights.
           </h1>
 

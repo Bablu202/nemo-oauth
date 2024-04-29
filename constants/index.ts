@@ -229,33 +229,25 @@ const fourthVideo = "/videos/fourth.mp4";
 export const hightlightsSlides: HighlightSlide[] = [
   {
     id: 1,
-    textLists: [
-      "Enter A17 Pro.",
-      "Game-changing chip.",
-      "Groundbreaking performance.",
-    ],
+    textLists: ["Kerela"],
     video: firstVideo,
     videoDuration: 8,
   },
   {
     id: 2,
-    textLists: ["Titanium.", "So strong. So light. So Pro."],
+    textLists: ["North"],
     video: secondVideo,
     videoDuration: 8,
   },
   {
     id: 3,
-    textLists: [
-      "iPhone 15 Pro Max has the",
-      "longest optical zoom in",
-      "iPhone ever. Far out.",
-    ],
+    textLists: ["Nature"],
     video: thirdVideo,
     videoDuration: 6,
   },
   {
     id: 4,
-    textLists: ["All-new Action button.", "What will yours do?."],
+    textLists: ["party"],
     video: fourthVideo,
     videoDuration: 10,
   },
