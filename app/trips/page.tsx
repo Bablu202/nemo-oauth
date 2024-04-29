@@ -1,11 +1,12 @@
 import AllTrips from "@components/AllTrips";
+import Highlights from "@components/Highlights";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      All trips
-      <AllTrips />
+      {/* <AllTrips /> */}
+      <Highlights />
     </div>
   );
 };

@@ -222,7 +222,10 @@ interface HighlightSlide {
   videoDuration: number;
 }
 
-const firstVideo = "https://www.pexels.com/download/video/4713259/";
+const firstVideo = "/videos/first.mp4";
+const secondVideo = "/videos/second.mp4";
+const thirdVideo = "/videos/third.mp4";
+const fourthVideo = "/videos/fourth.mp4";
 export const hightlightsSlides: HighlightSlide[] = [
   {
     id: 1,
@@ -232,13 +235,13 @@ export const hightlightsSlides: HighlightSlide[] = [
       "Groundbreaking performance.",
     ],
     video: firstVideo,
-    videoDuration: 4,
+    videoDuration: 8,
   },
   {
     id: 2,
     textLists: ["Titanium.", "So strong. So light. So Pro."],
-    video: firstVideo,
-    videoDuration: 5,
+    video: secondVideo,
+    videoDuration: 8,
   },
   {
     id: 3,
@@ -247,13 +250,13 @@ export const hightlightsSlides: HighlightSlide[] = [
       "longest optical zoom in",
       "iPhone ever. Far out.",
     ],
-    video: firstVideo,
-    videoDuration: 2,
+    video: thirdVideo,
+    videoDuration: 6,
   },
   {
     id: 4,
     textLists: ["All-new Action button.", "What will yours do?."],
-    video: firstVideo,
-    videoDuration: 3.63,
+    video: fourthVideo,
+    videoDuration: 10,
   },
 ];

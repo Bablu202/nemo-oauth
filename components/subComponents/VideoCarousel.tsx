@@ -10,13 +10,20 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const VideoCarousel = (): JSX.Element => {
+interface Video {
+  isEnd: boolean;
+  startPlay: boolean;
+  videoId: number;
+  isLastVideo: boolean;
+  isPlaying: boolean;
+}
+
+const VideoCarousel: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement[]>([]);
   const videoSpanRef = useRef<HTMLSpanElement[]>([]);
-  const videoDivRef = useRef<HTMLSpanElement[]>([]);
+  const videoDivRef = useRef<HTMLDivElement[]>([]);
 
-  // video and indicator
-  const [video, setVideo] = useState({
+  const [video, setVideo] = useState<Video>({
     isEnd: false,
     startPlay: false,
     videoId: 0,
@@ -24,26 +31,24 @@ const VideoCarousel = (): JSX.Element => {
     isPlaying: false,
   });
 
-  const [loadedData, setLoadedData] = useState<boolean[]>([]);
+  const [loadedData, setLoadedData] = useState<number[]>([]);
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
-    // slider animation to move the video out of the screen and bring the next video in
     gsap.to("#slider", {
       transform: `translateX(${-100 * videoId}%)`,
       duration: 2,
-      ease: "power2.inOut", // show visualizer https://gsap.com/docs/v3/Eases
+      ease: "power2.inOut",
     });
 
-    // video animation to play the video when it is in the view
     gsap.to("#video", {
       scrollTrigger: {
         trigger: "#video",
         toggleActions: "restart none none none",
       },
       onComplete: () => {
-        setVideo((pre) => ({
-          ...pre,
+        setVideo((prev) => ({
+          ...prev,
           startPlay: true,
           isPlaying: true,
         }));
@@ -56,34 +61,28 @@ const VideoCarousel = (): JSX.Element => {
     let span = videoSpanRef.current;
 
     if (span[videoId]) {
-      // animation to move the indicator
       let anim = gsap.to(span[videoId], {
         onUpdate: () => {
-          // get the progress of the video
           const progress = Math.ceil(anim.progress() * 100);
 
           if (progress !== currentProgress) {
             currentProgress = progress;
 
-            // set the width of the progress bar
             gsap.to(videoDivRef.current[videoId], {
               width:
                 window.innerWidth < 760
-                  ? "10vw" // mobile
+                  ? "10vw"
                   : window.innerWidth < 1200
-                  ? "10vw" // tablet
-                  : "4vw", // laptop
+                  ? "10vw"
+                  : "4vw",
             });
 
-            // set the background color of the progress bar
             gsap.to(span[videoId], {
               width: `${currentProgress}%`,
               backgroundColor: "white",
             });
           }
         },
-
-        // when the video is ended, replace the progress bar with the indicator and change the background color
         onComplete: () => {
           if (isPlaying) {
             gsap.to(videoDivRef.current[videoId], {
@@ -100,7 +99,6 @@ const VideoCarousel = (): JSX.Element => {
         anim.restart();
       }
 
-      // update the progress bar
       const animUpdate = () => {
         anim.progress(
           videoRef.current[videoId].currentTime /
@@ -109,10 +107,8 @@ const VideoCarousel = (): JSX.Element => {
       };
 
       if (isPlaying) {
-        // ticker to update the progress bar
         gsap.ticker.add(animUpdate);
       } else {
-        // remove the ticker when the video is paused (progress bar is stopped)
         gsap.ticker.remove(animUpdate);
       }
     }
@@ -120,63 +116,40 @@ const VideoCarousel = (): JSX.Element => {
 
   useEffect(() => {
     if (loadedData.length > 3) {
-      const currentVideo = videoRef.current[videoId];
-      // Ensure that currentVideo is a valid video element
-      if (currentVideo instanceof HTMLVideoElement) {
-        if (!isPlaying) {
-          currentVideo.pause();
-        } else {
-          // Check if the video element has a play() method
-          if (typeof currentVideo.play === "function") {
-            // Ensure startPlay is true before playing
-            startPlay &&
-              currentVideo.play().catch((error) => {
-                // Handle error if play() method fails
-                console.error("Error playing video:", error);
-              });
-          } else {
-            console.error(
-              "play() method is not available on the video element:",
-              currentVideo
-            );
-          }
-        }
+      if (!isPlaying) {
+        videoRef.current[videoId].pause();
       } else {
-        console.error("Element is not a video element:", currentVideo);
+        startPlay && videoRef.current[videoId].play();
       }
     }
   }, [startPlay, videoId, isPlaying, loadedData]);
 
-  // vd id is the id for every video until id becomes number 3
   const handleProcess = (type: string, i: number) => {
     switch (type) {
       case "video-end":
-        setVideo((pre) => ({ ...pre, isEnd: true, videoId: i + 1 }));
+        setVideo((prev) => ({ ...prev, isEnd: true, videoId: i + 1 }));
         break;
-
       case "video-last":
-        setVideo((pre) => ({ ...pre, isLastVideo: true }));
+        setVideo((prev) => ({ ...prev, isLastVideo: true }));
         break;
-
       case "video-reset":
-        setVideo((pre) => ({ ...pre, videoId: 0, isLastVideo: false }));
+        setVideo((prev) => ({ ...prev, videoId: 0, isLastVideo: false }));
         break;
-
       case "pause":
-        setVideo((pre) => ({ ...pre, isPlaying: !pre.isPlaying }));
+        setVideo((prev) => ({ ...prev, isPlaying: !prev.isPlaying }));
         break;
-
       case "play":
-        setVideo((pre) => ({ ...pre, isPlaying: !pre.isPlaying }));
+        setVideo((prev) => ({ ...prev, isPlaying: !prev.isPlaying }));
         break;
-
       default:
         return video;
     }
   };
 
-  const handleLoadedMetaData = (i: number, e: any) =>
-    setLoadedData((pre) => [...pre, e]);
+  const handleLoadedMetaData = (
+    i: number,
+    e: React.SyntheticEvent<HTMLVideoElement, Event>
+  ) => setLoadedData((prev) => [...prev, i]);
 
   return (
     <>
@@ -225,11 +198,11 @@ const VideoCarousel = (): JSX.Element => {
       </div>
 
       <div className="relative flex-center mt-10">
-        <div className="flex-center py-5 px-7 bg-gray-300 backdrop-blur rounded-full">
+        <div className="flex-center py-2 px-4 bg-custom-white backdrop-blur rounded-full">
           {videoRef.current.map((_, i) => (
             <span
               key={i}
-              className="mx-2 w-3 h-3 bg-gray-200 rounded-full relative cursor-pointer"
+              className="mx-2 w-1 h-1 bg-custom-sec rounded-full relative cursor-pointer"
               ref={(el: HTMLVideoElement | null) => {
                 if (el) {
                   videoRef.current[i] = el;
@@ -248,10 +221,10 @@ const VideoCarousel = (): JSX.Element => {
           ))}
         </div>
 
-        <button className="control-btn">
+        <button className="ml-4 p-1 rounded-full bg-custom-pri backdrop-blur flex-center">
           <Image
-            width={64}
-            height={64}
+            width={16}
+            height={16}
             src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
             alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
             onClick={() =>
