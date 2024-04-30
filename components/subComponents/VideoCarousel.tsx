@@ -26,7 +26,7 @@ const VideoCarousel: React.FC = () => {
   const [video, setVideo] = useState<Video>({
     isEnd: false,
     startPlay: false,
-    videoId: 1,
+    videoId: 2,
     isLastVideo: false,
     isPlaying: false,
   });
@@ -114,6 +114,7 @@ const VideoCarousel: React.FC = () => {
         gsap.ticker.remove(animUpdate);
       }
     }
+    console.log("uEffect ONE" + videoDivRef, videoRef);
   }, [videoId, startPlay, isPlaying, video]);
 
   useEffect(() => {
@@ -123,6 +124,7 @@ const VideoCarousel: React.FC = () => {
       } else {
         startPlay && videoRef.current[videoId].play();
       }
+      console.log(videoDivRef, videoRef);
     }
   }, [startPlay, videoId, isPlaying, loadedData]);
 
