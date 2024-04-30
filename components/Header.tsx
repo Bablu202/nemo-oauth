@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="sticky top-0 ">
-      <div className="bg-white/95 p-1.5 border-b border-b-custom-sec border-opacity-20">
+      <div className="bg-white/95  border-b border-b-custom-sec border-opacity-20">
         <div className="max-w-6xl m-auto flex items-center justify-between">
           <div className="px-5 py-1 lg:px-4 ">
             <a href="/home" className="text-xl font-normal xl:text-2xl">
@@ -89,7 +89,7 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
 }) => {
   return (
     <div
-      className={`z-10 fixed top-4 right-2 w-10 h-2 lg:hidden cursor-pointer ${
+      className={`z-10 fixed top-1.5 right-2 w-10 h-2 lg:hidden cursor-pointer ${
         openNavigation ? "-mt-4 " : ""
       }`}
       onClick={onClick}
