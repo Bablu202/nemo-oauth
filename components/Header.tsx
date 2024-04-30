@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="sticky top-0 ">
-      <div className="bg-white/95 border-b border-b-custom-sec border-opacity-20">
+      <div className="bg-white/95 p-1.5 border-b border-b-custom-sec border-opacity-20">
         <div className="max-w-6xl m-auto flex items-center justify-between">
           <div className="px-5 py-1 lg:px-4 ">
             <a href="/home" className="text-xl font-normal xl:text-2xl">
@@ -89,24 +89,20 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
 }) => {
   return (
     <div
-      className={`z-10 fixed  top-2.5 right-4 w-10 h-5 lg:hidden cursor-pointer ${
-        openNavigation ? "-mt-2 " : ""
+      className={`z-10 fixed top-4 right-2 w-10 h-2 lg:hidden cursor-pointer ${
+        openNavigation ? "-mt-4 " : ""
       }`}
       onClick={onClick}
     >
       <div
-        className={`fixed border border-custom-pri w-8 transition-all ${
-          openNavigation ? " rotate-45 mt-4 border-white" : ""
+        className={`fixed border border-custom-pri w-8 transition-all mt-1.5 ${
+          openNavigation ? " rotate-45 mt-6 border-white" : ""
         }`}
       />
-      <div
-        className={`fixed border border-custom-pri w-8 mt-2 transition-all ${
-          openNavigation ? "hidden" : ""
-        }`}
-      />
+
       <div
         className={`fixed border border-custom-pri w-8 mt-4 transition-all ${
-          openNavigation ? "-rotate-45 mt-2 border-white" : ""
+          openNavigation ? "-rotate-45 mt-6 border-white" : ""
         }`}
       />
     </div>
