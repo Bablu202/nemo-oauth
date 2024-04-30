@@ -14,7 +14,7 @@ function PostCard(post: Post) {
   return (
     <section className="py-4" id="trips">
       <Link href={post.url} legacyBehavior>
-        <div className="cursor-pointer p-1 sm:p-1.5 md:p-2 hover:transform hover:-translate-y-2 transition duration-300">
+        <div className="cursor-pointer p-1 sm:p-1.5 md:p-2">
           <div className="z-[-1] relative border  border-custom-pri border-opacity-30 mr-4 rounded-lg shadow-sm snap-always snap-center overflow-hidden">
             <div className="w-72 sm:w-80 md:w-96 xl:w-[30rem] h-60 md:h-64 container ">
               <Image
@@ -85,7 +85,7 @@ export default function AllTrips() {
     if (containerRef.current) {
       containerRef.current.scrollBy({
         left: -250, // Adjust as needed
-        behavior: "smooth",
+        //behavior: "smooth",
       });
     }
   };
@@ -94,19 +94,19 @@ export default function AllTrips() {
     if (containerRef.current) {
       containerRef.current.scrollBy({
         left: 250, // Adjust as needed
-        behavior: "smooth",
+        // behavior: "smooth",
       });
     }
   };
   return (
     <section className="max-w-6xl flex m-auto">
       <div className="w-full">
-        <h2 className="text-3xl font-bold text-left flex justify-center items-center gap-4">
+        <h2 className="text-3xl font-bold text-left flex justify-center items-center p-1">
           <FaMapSigns />
           Trips we offer..
         </h2>
-        <a href="#" className="p-2">
-          Fill the from, We will soon contact you Personally..!
+        <a href="#faqs" className="p-2 hover:cursor-pointer">
+          Fill the from, We will soon contact you..!
         </a>
         <div className="flex justify-between items-center relative">
           <div
@@ -121,13 +121,13 @@ export default function AllTrips() {
               <div className="px-10" />
               <div className="hidden lg:flex">
                 <button
-                  className="absolute top-8 left-0 h-60 text-6xl text-custom-pri "
+                  className="absolute top-8 left-0 h-60 text-6xl text-custom-sec "
                   onClick={scrollLeft}
                 >
                   <HiChevronLeft />
                 </button>
                 <button
-                  className="absolute right-0 h-full text-6xl text-custom-pri"
+                  className="absolute right-0 h-full text-6xl text-custom-sec"
                   onClick={scrollRight}
                 >
                   <HiChevronRight />
