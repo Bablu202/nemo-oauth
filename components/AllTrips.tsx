@@ -32,7 +32,7 @@ function PostCard(post: Post) {
                 <div className="absolute bottom-0 bg-gradient-to-t from-black/90 to-transparent w-full h-16" />
 
                 {/* both image and text */}
-                <div className="p-2.5 absolute flex flex-col w-full h-full">
+                <div className="p-1 lg:p-2 absolute flex flex-col w-full h-full">
                   <div className="flex justify-between">
                     <h3 className="text-xl font-semibold mb-2 flex items-center gap-4">
                       <MdTravelExplore />
@@ -41,14 +41,14 @@ function PostCard(post: Post) {
                     <div className="flex flex-col ">
                       <time
                         dateTime={post.startDate}
-                        className="mb-1 text-sm flex items-center gap-2"
+                        className="mb-1 text-xs lg:text-sm flex items-center gap-2"
                       >
                         <GiAirplaneDeparture />
                         {format(parseISO(post.startDate), "LLLL d, yyyy")}
                       </time>
                       <time
                         dateTime={post.returnDate}
-                        className=" mb-1 text-sm flex items-center gap-2"
+                        className=" mb-1 text-xs lg:text-sm flex items-center gap-2"
                       >
                         <GiAirplaneArrival />
                         {format(parseISO(post.returnDate), "LLLL d, yyyy")}
