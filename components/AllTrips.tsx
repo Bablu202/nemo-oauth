@@ -1,22 +1,22 @@
+"use client";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { getMDXComponent } from "next-contentlayer/hooks";
+import { useRef } from "react";
 import Image from "next/image";
 import { MdTravelExplore } from "react-icons/md";
 import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 import { HiCurrencyRupee } from "react-icons/hi";
 import { FaCalendarDays } from "react-icons/fa6";
-
+import { FaMapSigns } from "react-icons/fa";
 function PostCard(post: Post) {
-  const Content = getMDXComponent(post.body.code);
-
   return (
     <section className="py-4" id="trips">
       <Link href={post.url} legacyBehavior>
-        <div className="cursor-pointer px-4 py-3 hover:transform hover:-translate-y-2 transition duration-300">
-          <div className="z-[-1] relative border  border-custom-pri border-opacity-30 mr-4 rounded-lg shadow-sm snap-always snap-center  overflow-hidden">
-            <div className="w-96 h-60 container ">
+        <div className="cursor-pointer p-1 sm:p-1.5 md:p-2 hover:transform hover:-translate-y-2 transition duration-300">
+          <div className="z-[-1] relative border  border-custom-pri border-opacity-30 mr-4 rounded-lg shadow-sm snap-always snap-center overflow-hidden">
+            <div className="w-72 sm:w-80 md:w-96 xl:w-[30rem] h-60 md:h-64 container ">
               <Image
                 className="rounded-t-lg object-fill"
                 src={post.imageURL}
@@ -73,12 +73,31 @@ function PostCard(post: Post) {
     </section>
   );
 }
-import { FaMapSigns } from "react-icons/fa";
+import { HiChevronRight, HiChevronLeft } from "react-icons/hi2";
+
 export default function AllTrips() {
   const posts = allPosts.sort((b, a) =>
     compareDesc(new Date(a.startDate), new Date(b.startDate))
   );
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  const scrollLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({
+        left: -250, // Adjust as needed
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({
+        left: 250, // Adjust as needed
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section className="max-w-6xl flex m-auto">
       <div className="w-full">
@@ -89,11 +108,30 @@ export default function AllTrips() {
         <a href="#" className="p-2">
           Fill the from, We will soon contact you Personally..!
         </a>
-        <div className="overflow-x-auto  scroll-smooth snap-x snap-mandatory">
-          <div className="flex">
-            {posts.map((post, idx) => (
-              <PostCard key={idx} {...post} />
-            ))}
+        <div className="flex justify-between items-center relative">
+          <div
+            ref={containerRef}
+            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory"
+          >
+            <div className="flex max-w-6xl">
+              {posts.map((post, idx) => (
+                <PostCard key={idx} {...post} />
+              ))}
+              <div className="hidden lg:flex">
+                <button
+                  className="absolute top-8 left-0 h-60 text-6xl text-custom-pri "
+                  onClick={scrollLeft}
+                >
+                  <HiChevronLeft />
+                </button>
+                <button
+                  className="absolute right-0 h-full text-6xl text-custom-pri"
+                  onClick={scrollRight}
+                >
+                  <HiChevronRight />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

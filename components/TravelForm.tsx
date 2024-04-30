@@ -55,7 +55,7 @@ const TravelForm = () => {
 
   return (
     <section className="max-w-6xl flex m-auto ">
-      <div className="px-5 flex flex-col lg:flex-row" id="contact">
+      <div className="px-2 py-3 flex flex-col lg:flex-row" id="contact">
         <div className="container p-4 sm:p-2 m-atuo  lg:mr-auto mb-8">
           <h2 className="text-2xl font-bold text-center mb-4">Travel Form</h2>
           <form onSubmit={handleSubmit}>
@@ -70,10 +70,7 @@ const TravelForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full text-xl font-light border rounded-md 
-              appearance-none block  bg-custom-pri bg-opacity-30 
-              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-              focus:bg-white focus:border-custom-pri"
+                className="form-input"
               />
             </div>
             <div className="mb-4">
@@ -87,10 +84,7 @@ const TravelForm = () => {
                 value={formData.mobileNumber}
                 onChange={handleChange}
                 required
-                className="w-full text-xl font-bold border rounded-md 
-              appearance-none block  bg-custom-pri bg-opacity-30 
-              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-              focus:bg-white focus:border-custom-pri"
+                className="form-input"
               />
             </div>
             <div className="mb-4">
@@ -104,10 +98,7 @@ const TravelForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full text-xl font-bold border rounded-md 
-              appearance-none block  bg-custom-pri bg-opacity-30 
-              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-              focus:bg-white focus:border-custom-pri"
+                className="form-input"
               />
             </div>
             <div className="mb-4">
@@ -121,30 +112,23 @@ const TravelForm = () => {
                 value={formData.dob}
                 onChange={handleChange}
                 required
-                className="w-full text-xl font-light border rounded-md 
-              appearance-none block  bg-custom-pri bg-opacity-30 
-              border-custom-pri  py-3 px-4 leading-tight focus:outline-none
-              focus:bg-white focus:border-custom-pri"
+                className="form-input"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-custom-pri text-xl font-bold text-white py-2 rounded-md 
-            hover:bg-custom-sec "
-            >
+            <button type="submit" className="form-btn ">
               Submit
             </button>
           </form>
         </div>
         {/* faqs */}
-        <div className="flex flex-row" id="faqs">
+        <div className="flex flex-col w-full" id="faqs">
+          <h3 className="text-xl font-semibold mb-4">
+            Frequently asked questions..
+          </h3>
           <div
-            className="container -ml-8 lg:mx-auto px-4 py-8 overflow-y-auto scrollbar-hide"
-            style={{ maxHeight: "80vh" }}
+            className="lg:mx-auto  py-2 overflow-y-auto scrollbar-hide"
+            style={{ maxHeight: "65vh" }}
           >
-            <h3 className="text-xl font-semibold mb-2">
-              Frequently asked questions..
-            </h3>
             {faqs.map((faq) => (
               <div
                 key={faq.id}

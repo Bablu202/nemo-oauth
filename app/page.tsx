@@ -8,6 +8,7 @@ function page() {
     <div>
       <AllTrips />
       {/* <Highlights /> */}
+
       <TravelForm />
       <Footer />
     </div>

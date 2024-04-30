@@ -9,8 +9,45 @@
   scroll-behavior: smooth;
 }
 
-.links {
-  @apply hover:text-yellow-500 hover:underline;
+.li/* Hide scrollbar for Firefox */
+/* Source: https://stackoverflow.com/a/59202685/11603696 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+}
+
+/* Hide scrollbar for Webkit browsers */
+/* Source: https://stackoverflow.com/a/67515004/11603696 */
+::-webkit-scrollbar {
+  width: 6px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+  border: 2px solid transparent; /* border around the scroll thumb */
+}
+
+/* For Webkit-based browsers */
+/* Source: https://stackoverflow.com/a/47399736/11603696 */
+/* Custom scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Custom scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #033e8c;
+  border-radius: 10px;
+}
+
+/* Hide scrollbar buttons (arrows) */
+::-webkit-scrollbar-button {
+  display: none;
 }
 
 .head {
@@ -34,6 +71,17 @@
 
 .account-btn {
   @apply mt-2 w-full p-3 rounded-md bg-gray-700 text-white hover:bg-gray-600 focus:outline-none;
+}
+
+.form-input {
+  @apply min-w-60 md:min-w-96 text-base font-light border rounded-md 
+  bg-custom-pri bg-opacity-30 
+  border-custom-pri  py-1.5 px-2 leading-tight focus:outline-none
+  focus:bg-white focus:border-custom-pri;
+}
+.form-btn {
+  @apply px-2 py-1 bg-custom-pri text-base font-bold text-white rounded-md 
+  hover:bg-custom-sec;
 }
 
 /* here for corousel */

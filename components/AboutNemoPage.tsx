@@ -16,7 +16,6 @@ const AboutNemoPage = () => {
                 <item.icon className="w-16 h-16 text-custom-pri mb-4" />
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-left">{item.text}</p>
-                <span className="border-b w-80 border-b-custom-pri border-opacity-30" />
               </div>
             ))}
           </div>
