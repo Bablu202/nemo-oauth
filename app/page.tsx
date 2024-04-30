@@ -1,6 +1,7 @@
+import AboutNemoPage from "@components/AboutNemoPage";
 import AllTrips from "@components/AllTrips";
 import Footer from "@components/Footer";
-import Highlights from "@components/Highlights";
+import RatingReview from "@components/RateReview";
 import TravelForm from "@components/TravelForm";
 
 function page() {
@@ -8,8 +9,10 @@ function page() {
     <div>
       <AllTrips />
       {/* <Highlights /> */}
-
+      <AboutNemoPage />
       <TravelForm />
+      <RatingReview />
+
       <Footer />
     </div>
   );

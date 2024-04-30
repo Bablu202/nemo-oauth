@@ -84,25 +84,27 @@ export default function AllTrips() {
   const scrollLeft = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
-        left: -250, // Adjust as needed
+        left: -300, // Adjust as needed
         //behavior: "smooth",
       });
+      console.log("move");
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
-        left: 250, // Adjust as needed
+        left: 300, // Adjust as needed
         // behavior: "smooth",
       });
+      console.log("move");
     }
   };
   return (
     <section className="max-w-6xl flex m-auto">
       <div className="w-full">
         <h2 className="text-3xl font-bold text-left flex justify-center items-center p-1">
-          <FaMapSigns />
+          <FaMapSigns className="text-custom-pri mr-4 text-4xl" />
           Trips we offer..
         </h2>
         <a href="#faqs" className="p-2 hover:cursor-pointer">
