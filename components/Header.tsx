@@ -24,14 +24,11 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="sticky top-0 border-b border-opacity-20 border-b-custom-sec backdrop-blur-md">
-      <div className="max-w-6xl m-auto flex items-center justify-between">
-        <div className={` flex m-auto top-0 left-0 w-full`}>
-          <div className="px-5 py-1 lg:px-4">
-            <a
-              href="/home"
-              className="cursor-pointer block text-xl lg:text-xl font-normal xl:text-2xl"
-            >
+    <div className="sticky top-0 ">
+      <div className="bg-white/95 border-b border-b-custom-sec border-opacity-20">
+        <div className="max-w-6xl m-auto flex items-center justify-between">
+          <div className="px-5 py-1 lg:px-4 ">
+            <a href="/home" className="text-xl font-normal xl:text-2xl">
               <p className="flex items-center gap-3">
                 <GiClownfish className="text-custom-sec" />
                 Travelling
@@ -39,40 +36,40 @@ const Header: React.FC = () => {
               </p>
             </a>
           </div>
-        </div>
-        <nav
-          className={`${
-            openNavigation ? "flex w-full" : "hidden"
-          } fixed top-0 left-0 backdrop-blur-md  bottom-0 lg:ml-auto lg:static lg:flex`}
-        >
-          <div
-            onClick={handleClick}
-            className={`z-2 flex flex-col justify-center gap-5 m-auto  lg:flex-row ${
-              openNavigation
-                ? "w-full h-full bg-custom-sec bg-opacity-80 text-right text-white backdrop-blur-lg "
-                : "w-max"
-            }`}
+          <nav
+            className={`${
+              openNavigation ? "flex w-full" : "hidden"
+            } fixed top-0 left-0 bottom-0 lg:ml-auto lg:static lg:flex`}
           >
-            {navigationData.map((item: NavigationItem) => (
-              <Link
-                key={item.id}
-                className={`relative font-bold text-center text-4xl  lg:text-base lg:font-semibold
+            <div
+              onClick={handleClick}
+              className={`z-2 flex flex-col justify-center gap-5 m-auto  lg:flex-row ${
+                openNavigation
+                  ? "w-full h-full bg-custom-sec bg-opacity-80 text-right text-white backdrop-blur-lg "
+                  : "w-max"
+              }`}
+            >
+              {navigationData.map((item: NavigationItem) => (
+                <Link
+                  key={item.id}
+                  className={`relative font-bold text-center text-4xl  lg:text-base lg:font-semibold
                tracking-wide px-20 py-2 transition-colors hover:text-custom-pri lg:pt-0 lg:mx-4 lg:p-0 ${
                  false ? "text-custom-pri underline underline-offset-4" : ""
                } ${item?.onlyMobile && "lg:hidden"}`}
-                href={item.url}
-              >
-                {item.title}
-              </Link>
-            ))}
+                  href={item.url}
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </nav>
+          <SmallDevicesMenu
+            onClick={toggleNavigation}
+            openNavigation={openNavigation}
+          />
+          <div className="hidden z-20  cursor-pointer lg:block">
+            {/* TODO:account info */}
           </div>
-        </nav>
-        <SmallDevicesMenu
-          onClick={toggleNavigation}
-          openNavigation={openNavigation}
-        />
-        <div className="hidden z-20  cursor-pointer lg:block">
-          {/* TODO:account info */}
         </div>
       </div>
     </div>
