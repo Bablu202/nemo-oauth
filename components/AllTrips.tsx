@@ -114,9 +114,11 @@ export default function AllTrips() {
             className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory"
           >
             <div className="flex max-w-6xl">
+              <div className="px-10" />
               {posts.map((post, idx) => (
                 <PostCard key={idx} {...post} />
               ))}
+              <div className="px-10" />
               <div className="hidden lg:flex">
                 <button
                   className="absolute top-8 left-0 h-60 text-6xl text-custom-pri "
