@@ -14,8 +14,8 @@ function PostCard(post: Post) {
   return (
     <section className="py-4" id="trips">
       <Link href={post.url} legacyBehavior>
-        <div className="cursor-pointer px-4 py-3">
-          <div className="z-[-1] relative border  border-custom-pri border-opacity-30 mr-4 rounded-lg shadow-2xl snap-always snap-center  overflow-hidden">
+        <div className="cursor-pointer px-4 py-3 hover:transform hover:-translate-y-2 transition duration-300">
+          <div className="z-[-1] relative border  border-custom-pri border-opacity-30 mr-4 rounded-lg shadow-sm snap-always snap-center  overflow-hidden">
             <div className="w-96 h-60 container ">
               <Image
                 className="rounded-t-lg object-fill"
@@ -89,7 +89,7 @@ export default function AllTrips() {
         <a href="#" className="p-2">
           Fill the from, We will soon contact you Personally..!
         </a>
-        <div className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory">
+        <div className="overflow-x-auto  scroll-smooth snap-x snap-mandatory">
           <div className="flex">
             {posts.map((post, idx) => (
               <PostCard key={idx} {...post} />

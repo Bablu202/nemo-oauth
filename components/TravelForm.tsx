@@ -139,7 +139,7 @@ const TravelForm = () => {
         {/* faqs */}
         <div className="flex flex-row" id="faqs">
           <div
-            className="container -ml-8 lg:mx-auto px-4 py-8 overflow-y-auto "
+            className="container -ml-8 lg:mx-auto px-4 py-8 overflow-y-auto scrollbar-hide"
             style={{ maxHeight: "80vh" }}
           >
             <h3 className="text-xl font-semibold mb-2">

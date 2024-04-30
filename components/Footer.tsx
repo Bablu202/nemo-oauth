@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-custom-pri p-2.5 mt-5 w-full">
       <section className="max-w-6xl m-auto">
-        <div className="flex flex-col text-white text-center mx-5 lg:flex lg:flex-row lg:justify-between lg:mx-10">
+        <div className="flex flex-col text-white text-center mx-5 lg:flex lg:flex-row lg:justify-between">
           <div className="flex flex-col">
             <h3 className="text-base sm:text-xl lg:text-2xl">
               Follow us for more events & things...
@@ -18,7 +18,11 @@ const Footer = () => {
                 {item.isText ? (
                   <span className="text-lg">{item.title}</span>
                 ) : (
-                  <div className="mt-2 text-2xl lg:text-2xl cursor-pointer hover:text-custom-sec hover:shadow-2xl">
+                  <div
+                    className="mt-2  text-2xl lg:text-2xl cursor-pointer 
+                  hover:border-none hover:text-custom-sec 
+                  hover:transform hover:-translate-y-1 transition duration-300"
+                  >
                     {item.logo && <item.logo />}
                   </div>
                 )}
