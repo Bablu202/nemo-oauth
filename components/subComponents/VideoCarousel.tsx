@@ -158,14 +158,14 @@ const VideoCarousel = () => {
     <>
       <div className="flex items-center">
         {hightlightsSlides.map((list, i) => (
-          <div key={list.id} id="slider" className="sm:pr-20 pr-10">
-            <div className="video-carousel_container">
-              <div className="w-full h-full flex-center rounded-3xl overflow-hidden border bg-transparent">
+          <div key={list.id} id="slider" className="sm:mr[-10] lg:mr-[-15]">
+            <div className="video-carousel_container ">
+              <div className="w-[65%] h-[40%]  rounded-3xl overflow-hidden border bg-transparent">
                 <video
                   id="video"
                   playsInline={true}
                   className={`${
-                    list.id === 2 ? "translate-x-44" : ""
+                    list.id === 2 ? "translate-x-0" : ""
                   } pointer-events-none`}
                   preload="auto"
                   muted
@@ -198,8 +198,8 @@ const VideoCarousel = () => {
         ))}
       </div>
 
-      <div className="relative flex-center mt-10">
-        <div className="flex-center py-5 px-7 bg-custom-pri backdrop-blur rounded-full">
+      <div className="relative flex-center">
+        <div className="flex-center py-3 px-2 bg-custom-pri backdrop-blur rounded-full">
           {videoRef.current.map((_, i) => (
             <span
               key={i}

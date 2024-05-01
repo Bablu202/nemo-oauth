@@ -13,8 +13,8 @@ const Highlights: React.FC = () => {
 
   return (
     <section id="highlights" className="max-w-6xl flex m-auto ">
-      <div className="screen-max-width overflow-hidden h-full common-padding">
-        <div className="mb-12 w-full md:flex justify-between">
+      <div className="overflow-hidden">
+        <div className="mb-2 md:flex justify-between">
           <h1 id="title" className="text-xl">
             Get the highlights.
           </h1>

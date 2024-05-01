@@ -86,18 +86,18 @@
 /* nedded */
 
 .video-carousel_container {
-  @apply relative sm:w-[70vw] w-[88vw] md:h-[70vh] sm:h-[50vh] h-[35vh];
+  @apply relative sm:w-[50vw] w-[68vw] md:h-[50vh] sm:h-[30vh] h-[15vh];
 }
 
 .control-btn {
-  @apply ml-4 p-4 rounded-full bg-custom-pri backdrop-blur flex-center;
+  @apply ml-4 p-2 rounded-full bg-custom-pri backdrop-blur flex-center;
 }
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;
   }
   .common-padding {
-    @apply sm:py-32 py-20 sm:px-10 px-5;
+    @apply sm:py-8 py-8 sm:px-4 px-2;
   }
 }
 /* here for corousel */

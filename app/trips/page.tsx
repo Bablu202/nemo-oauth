@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div>
       {/* <AllTrips /> */}
-      <Highlights />
+      {/* <Highlights /> */}
       {/* <TestCorousel /> */}
     </div>
   );
