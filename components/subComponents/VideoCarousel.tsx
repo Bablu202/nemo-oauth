@@ -18,7 +18,7 @@ interface Video {
   isPlaying: boolean;
 }
 
-const VideoCarousel: React.FC = () => {
+const VideoCarousel = () => {
   const videoRef = useRef<HTMLVideoElement[]>([]);
   const videoSpanRef = useRef<HTMLSpanElement[]>([]);
   const videoDivRef = useRef<HTMLDivElement[]>([]);
@@ -26,12 +26,13 @@ const VideoCarousel: React.FC = () => {
   const [video, setVideo] = useState<Video>({
     isEnd: false,
     startPlay: false,
-    videoId: 0,
+    videoId: 1,
     isLastVideo: false,
     isPlaying: false,
   });
 
-  const [loadedData, setLoadedData] = useState<number[]>([]);
+  const [loadedData, setLoadedData] = useState<HTMLVideoElement[]>([]);
+
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
@@ -47,8 +48,8 @@ const VideoCarousel: React.FC = () => {
         toggleActions: "restart none none none",
       },
       onComplete: () => {
-        setVideo((prev) => ({
-          ...prev,
+        setVideo((pre) => ({
+          ...pre,
           startPlay: true,
           isPlaying: true,
         }));
@@ -59,9 +60,6 @@ const VideoCarousel: React.FC = () => {
   useEffect(() => {
     let currentProgress = 0;
     let span = videoSpanRef.current;
-    console.log(span);
-    console.log(video);
-
     if (span[videoId]) {
       let anim = gsap.to(span[videoId], {
         onUpdate: () => {
@@ -114,8 +112,7 @@ const VideoCarousel: React.FC = () => {
         gsap.ticker.remove(animUpdate);
       }
     }
-    console.log("uEffect ONE" + videoDivRef, videoRef);
-  }, [videoId, startPlay, isPlaying, video]);
+  }, [videoId, startPlay, isPlaying]);
 
   useEffect(() => {
     if (loadedData.length > 3) {
@@ -124,36 +121,38 @@ const VideoCarousel: React.FC = () => {
       } else {
         startPlay && videoRef.current[videoId].play();
       }
-      console.log(videoDivRef, videoRef);
     }
   }, [startPlay, videoId, isPlaying, loadedData]);
 
-  const handleProcess = (type: string, i: number) => {
+  const handleProcess = (type: string, i?: number) => {
     switch (type) {
       case "video-end":
-        setVideo((prev) => ({ ...prev, isEnd: true, videoId: i + 1 }));
+        setVideo((pre) => ({ ...pre, isEnd: true, videoId: i! + 1 }));
         break;
+
       case "video-last":
-        setVideo((prev) => ({ ...prev, isLastVideo: true }));
+        setVideo((pre) => ({ ...pre, isLastVideo: true }));
         break;
+
       case "video-reset":
-        setVideo((prev) => ({ ...prev, videoId: 0, isLastVideo: false }));
+        setVideo((pre) => ({ ...pre, videoId: 0, isLastVideo: false }));
         break;
+
       case "pause":
-        setVideo((prev) => ({ ...prev, isPlaying: !prev.isPlaying }));
+        setVideo((pre) => ({ ...pre, isPlaying: !pre.isPlaying }));
         break;
+
       case "play":
-        setVideo((prev) => ({ ...prev, isPlaying: !prev.isPlaying }));
+        setVideo((pre) => ({ ...pre, isPlaying: !pre.isPlaying }));
         break;
+
       default:
         return video;
     }
   };
 
-  const handleLoadedMetaData = (
-    i: number,
-    e: React.SyntheticEvent<HTMLVideoElement, Event>
-  ) => setLoadedData((prev) => [...prev, i]);
+  const handleLoadedMetaData = (i: number, e: HTMLVideoElement) =>
+    setLoadedData((pre) => [...pre, e]);
 
   return (
     <>
@@ -161,29 +160,27 @@ const VideoCarousel: React.FC = () => {
         {hightlightsSlides.map((list, i) => (
           <div key={list.id} id="slider" className="sm:pr-20 pr-10">
             <div className="video-carousel_container">
-              <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
+              <div className="w-full h-full flex-center rounded-3xl overflow-hidden border bg-transparent">
                 <video
                   id="video"
                   playsInline={true}
                   className={`${
-                    list.id === 2 && "translate-x-44"
+                    list.id === 2 ? "translate-x-44" : ""
                   } pointer-events-none`}
                   preload="auto"
                   muted
-                  ref={(el: HTMLVideoElement) => {
-                    if (el) {
-                      videoRef.current[i] = el;
-                    }
-                  }}
+                  ref={(el) => (videoRef.current[i] = el!)}
                   onEnded={() =>
                     i !== 3
                       ? handleProcess("video-end", i)
-                      : handleProcess("video-last", i)
+                      : handleProcess("video-last")
                   }
                   onPlay={() =>
                     setVideo((pre) => ({ ...pre, isPlaying: true }))
                   }
-                  onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
+                  onLoadedMetadata={(e) =>
+                    handleLoadedMetaData(i, e.target as HTMLVideoElement)
+                  }
                 >
                   <source src={list.video} type="video/mp4" />
                 </video>
@@ -202,41 +199,31 @@ const VideoCarousel: React.FC = () => {
       </div>
 
       <div className="relative flex-center mt-10">
-        <div className="flex-center py-2 px-4 bg-custom-white backdrop-blur rounded-full">
+        <div className="flex-center py-5 px-7 bg-custom-pri backdrop-blur rounded-full">
           {videoRef.current.map((_, i) => (
             <span
               key={i}
-              className="mx-2 w-1 h-1 bg-custom-sec rounded-full relative cursor-pointer"
-              ref={(el: HTMLVideoElement) => {
-                if (el) {
-                  videoRef.current[i] = el;
-                }
-              }}
+              className="mx-2 w-3 h-3 bg-white rounded-full relative cursor-pointer"
+              ref={(el) => (videoDivRef.current[i] = el!)}
             >
               <span
                 className="absolute h-full w-full rounded-full"
-                ref={(el: HTMLVideoElement) => {
-                  if (el) {
-                    videoRef.current[i] = el;
-                  }
-                }}
+                ref={(el) => (videoSpanRef.current[i] = el!)}
               />
             </span>
           ))}
         </div>
 
-        <button className="ml-4 p-1 rounded-full bg-custom-pri backdrop-blur flex-center">
+        <button className="control-btn">
           <Image
-            width={16}
-            height={16}
             src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
             alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
-            onClick={() =>
+            onClick={
               isLastVideo
-                ? handleProcess("video-reset", 0)
+                ? () => handleProcess("video-reset")
                 : !isPlaying
-                ? handleProcess("play", 0)
-                : handleProcess("pause", 0)
+                ? () => handleProcess("play")
+                : () => handleProcess("pause")
             }
           />
         </button>

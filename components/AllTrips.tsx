@@ -84,7 +84,7 @@ export default function AllTrips() {
   const scrollLeft = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
-        left: -300, // Adjust as needed
+        left: -400, // Adjust as needed
         //behavior: "smooth",
       });
       console.log("move");
@@ -94,7 +94,7 @@ export default function AllTrips() {
   const scrollRight = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
-        left: 300, // Adjust as needed
+        left: 400, // Adjust as needed
         // behavior: "smooth",
       });
       console.log("move");
@@ -108,7 +108,7 @@ export default function AllTrips() {
           Trips we offer..
         </h2>
         <a href="#faqs" className="p-2 hover:cursor-pointer">
-          Fill the from, We will soon contact you..!
+          Fill the FORM, We will soon contact you..!
         </a>
         <div className="flex justify-between items-center relative">
           <div
