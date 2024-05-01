@@ -96,6 +96,9 @@
   .flex-center {
     @apply flex items-center justify-center;
   }
+  .common-padding {
+    @apply sm:py-32 py-20 sm:px-10 px-5;
+  }
 }
 /* here for corousel */
 /*

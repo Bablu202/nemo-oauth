@@ -12,17 +12,14 @@ const Highlights: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="highlights"
-      className="w-screen overflow-hidden h-full common-padding bg-zinc"
-    >
-      <div className="screen-max-width">
+    <section id="highlights" className="max-w-6xl flex m-auto ">
+      <div className="screen-max-width overflow-hidden h-full common-padding">
         <div className="mb-12 w-full md:flex justify-between">
           <h1 id="title" className="text-xl">
             Get the highlights.
           </h1>
 
-          <div className="flex flex-wrap items-end gap-5">
+          {/* <div className="flex flex-wrap items-end gap-5">
             <p className="link">
               Watch the events
               <Image src={watchImg} alt="watch" className="ml-2" />
@@ -31,7 +28,7 @@ const Highlights: React.FC = () => {
               more at
               <Image src={rightImg} alt="right" className="ml-2" />
             </p>
-          </div>
+          </div> */}
         </div>
 
         <VideoCarousel />
