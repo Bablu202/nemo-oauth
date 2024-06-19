@@ -9,7 +9,6 @@ import { MdTravelExplore } from "react-icons/md";
 import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 import { HiCurrencyRupee } from "react-icons/hi";
 import { FaCalendarDays } from "react-icons/fa6";
-import { FaMapSigns } from "react-icons/fa";
 function PostCard(post: Post) {
   return (
     <section className="py-4" id="trips">
@@ -101,14 +100,16 @@ export default function AllTrips() {
     }
   };
   return (
-    <section className="max-w-6xl flex m-auto">
-      <div className="w-full">
-        <h2 className="text-3xl font-bold text-left flex justify-center items-center p-1">
-          <FaMapSigns className="text-custom-pri mr-4 text-4xl" />
-          Trips we offer..
-        </h2>
-        <a href="#faqs" className="p-2 hover:cursor-pointer">
-          Fill the FORM, We will soon contact you..!
+    <section className="max-w-6xl flex m-auto mt-6">
+      <div className="w-full pt-2">
+        <h1
+          className="h1 
+        bg-gradient-to-r from-zinc-600 via-zinc-500  to-zinc-700 text-transparent bg-clip-text"
+        >
+          Discover experiences, not just destinations. Book with us.
+        </h1>
+        <a href="#travel-form" className="p-6 hover:cursor-pointer underline">
+          fill me, our people will contact you
         </a>
         <div className="flex justify-between items-center relative">
           <div

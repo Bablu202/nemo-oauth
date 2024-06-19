@@ -54,7 +54,7 @@ const TravelForm = () => {
   };
 
   return (
-    <section className="max-w-6xl flex m-auto ">
+    <section className="max-w-6xl flex m-auto " id="travel-form">
       <div className="px-2 py-3 flex flex-col lg:flex-row" id="contact">
         <div className="container p-4 sm:p-2 m-atuo  lg:mr-auto mb-8">
           <h2 className="text-2xl font-bold text-center mb-4">Travel Form</h2>

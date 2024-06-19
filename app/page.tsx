@@ -12,7 +12,6 @@ function page() {
       <AboutNemoPage />
       <TravelForm />
       <RatingReview />
-
       <Footer />
     </div>
   );
