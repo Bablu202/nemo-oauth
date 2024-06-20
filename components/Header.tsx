@@ -134,13 +134,13 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
       >
         <div
           className={`fixed border border-custom-pri w-8 transition-all mt-3 ${
-            openNavigation ? " rotate-45 mt-11 border-white" : ""
+            openNavigation ? " rotate-45 mt-10 border-white" : ""
           }`}
         />
 
         <div
           className={`fixed border border-custom-pri w-8 mt-6 transition-all ${
-            openNavigation ? "-rotate-45 mt-11 border-white" : ""
+            openNavigation ? "-rotate-45 mt-10 border-white" : ""
           }`}
         />
       </div>

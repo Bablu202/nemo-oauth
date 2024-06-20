@@ -48,7 +48,7 @@ const MobileNav: React.FC = () => {
             className="flex flex-col items-center justify-center space-y-1 group"
           >
             <item.icon className="text-2xl group-hover:text-custom-pri transition-colors duration-200" />
-            <span className="text-lg font-semibold group-hover:text-custom-pri transition-colors duration-200">
+            <span className="text-sm group-hover:text-custom-pri transition-colors duration-200">
               {item.title}
             </span>
           </Link>

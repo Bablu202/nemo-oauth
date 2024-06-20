@@ -22,7 +22,7 @@ const config: Config = {
         },
         blue: { DEFAULT: "#4D9DE0" },
         custom: {
-          pri: "#005315",
+          pri: "#24386E",
           sec: "#0D0D0D",
           blue: "#13678A",
           light: "#ADD9D1",
