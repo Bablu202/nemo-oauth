@@ -33,7 +33,7 @@ function PostCard(post: Post) {
                 {/* both image and text */}
                 <div className="p-1 lg:p-2 absolute flex flex-col w-full h-full">
                   <div className="flex justify-between">
-                    <h3 className="text-xl font-semibold mb-2 flex items-center gap-4">
+                    <h3 className="text-xl font-semibold mb-2 px-4  flex items-center gap-4">
                       <MdTravelExplore />
                       {post.title}
                     </h3>

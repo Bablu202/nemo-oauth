@@ -30,6 +30,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "app",
+    "components",
     ".contentlayer/generated",
     ".next/types/**/*.ts",
     "constants/index.ts",
