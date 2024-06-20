@@ -33,15 +33,24 @@ const MobileNav: React.FC = () => {
 
   return (
     <nav
-      className={`lg:hidden fixed bottom-0 left-0 w-full h-10 bg-zinc-600/80 
-        backdrop-blur-lg shadow-lg transition-transform duration-300 ${
-          showNav ? "translate-y-full" : "translate-y-0"
-        }`}
+      className={`lg:hidden fixed bottom-2 left-1/2 transform -translate-x-1/2 w-2/3 h-16 transition-transform duration-300 ${
+        showNav ? "translate-y-0" : "translate-y-full"
+      }`}
     >
-      <div className="flex justify-around items-center h-16">
+      <div
+        className="flex justify-around items-center w-full h-full  px-6 bg-white/95 
+    backdrop-blur-lg shadow-lg rounded-full "
+      >
         {navigationData.map((item: NavigationItem) => (
-          <Link key={item.id} className="" href={item.url}>
-            {item.title}
+          <Link
+            key={item.id}
+            href={item.url}
+            className="flex flex-col items-center justify-center space-y-1 group"
+          >
+            <item.icon className="text-2xl group-hover:text-custom-pri transition-colors duration-200" />
+            <span className="text-lg font-semibold group-hover:text-custom-pri transition-colors duration-200">
+              {item.title}
+            </span>
           </Link>
         ))}
       </div>
@@ -56,6 +65,7 @@ export interface NavigationItem {
   title: string;
   url: string;
   onlyMobile?: boolean;
+  icon: any;
 }
 
 export const navigationData: NavigationItem[] = [
@@ -63,16 +73,19 @@ export const navigationData: NavigationItem[] = [
     id: "0",
     title: "Home",
     url: "/home",
+    icon: CiHome,
   },
   {
     id: "1",
     title: "Explore",
     url: "/trips",
+    icon: CiSearch,
   },
   {
     id: "4",
     title: "User",
     url: "/user",
+    icon: CiUser,
   },
   /*{
     id: "5",

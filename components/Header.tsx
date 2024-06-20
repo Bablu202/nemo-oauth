@@ -62,7 +62,7 @@ const Header: React.FC = () => {
     >
       <div className="sticky top-0 z-10 ">
         <div className="bg-white/45 backdrop-blur-lg border-b border-b-custom-sec border-opacity-20">
-          <div className="max-w-6xl py-2 m-auto flex items-center justify-between">
+          <div className="max-w-6xl py-1.5 m-auto flex items-center justify-between">
             <div className="px-5 py-1 lg:px-4 ">
               <a href="/home" className="text-xl font-normal xl:text-2xl">
                 <p className="flex items-center gap-3">
@@ -133,14 +133,14 @@ const SmallDevicesMenu: React.FC<SmallDevicesMenuProps> = ({
         }`}
       >
         <div
-          className={`fixed border border-custom-pri w-8 transition-all mt-4 ${
-            openNavigation ? " rotate-45 mt-12 border-white" : ""
+          className={`fixed border border-custom-pri w-8 transition-all mt-3 ${
+            openNavigation ? " rotate-45 mt-11 border-white" : ""
           }`}
         />
 
         <div
-          className={`fixed border border-custom-pri w-8 mt-8 transition-all ${
-            openNavigation ? "-rotate-45 mt-12 border-white" : ""
+          className={`fixed border border-custom-pri w-8 mt-6 transition-all ${
+            openNavigation ? "-rotate-45 mt-11 border-white" : ""
           }`}
         />
       </div>
