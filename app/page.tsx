@@ -8,7 +8,6 @@ function page() {
   return (
     <div>
       <AllTrips />
-      {/* <Highlights /> */}
       <AboutNemoPage />
       <TravelForm />
       <RatingReview />

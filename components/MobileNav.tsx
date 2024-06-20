@@ -2,6 +2,9 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { CiSearch } from "react-icons/ci";
+import { CiHome } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
 
 const MobileNav: React.FC = () => {
   const [showNav, setShowNav] = useState(true);
@@ -9,7 +12,6 @@ const MobileNav: React.FC = () => {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-
     if (currentScrollY > lastScrollY) {
       // Scrolling down
       setShowNav(false);
@@ -31,23 +33,57 @@ const MobileNav: React.FC = () => {
 
   return (
     <nav
-      className={` fixed bottom-0 left-0 w-full h-10 bg-red-500 shadow-lg transition-transform duration-300 ${
-        showNav ? "translate-y-0" : "translate-y-full"
-      }`}
+      className={`lg:hidden fixed bottom-0 left-0 w-full h-10 bg-zinc-600/80 
+        backdrop-blur-lg shadow-lg transition-transform duration-300 ${
+          showNav ? "translate-y-full" : "translate-y-0"
+        }`}
     >
       <div className="flex justify-around items-center h-16">
-        <Link href="/" className="flex-1 text-center py-2">
-          Home
-        </Link>
-        <Link href="/about" className="flex-1 text-center py-2">
-          Explore
-        </Link>
-        <Link href="/user" className="flex-1 text-center py-2">
-          User
-        </Link>
+        {navigationData.map((item: NavigationItem) => (
+          <Link key={item.id} className="" href={item.url}>
+            {item.title}
+          </Link>
+        ))}
       </div>
     </nav>
   );
 };
 
 export default MobileNav;
+
+export interface NavigationItem {
+  id: string;
+  title: string;
+  url: string;
+  onlyMobile?: boolean;
+}
+
+export const navigationData: NavigationItem[] = [
+  {
+    id: "0",
+    title: "Home",
+    url: "/home",
+  },
+  {
+    id: "1",
+    title: "Explore",
+    url: "/trips",
+  },
+  {
+    id: "4",
+    title: "User",
+    url: "/user",
+  },
+  /*{
+    id: "5",
+    title: "New account",
+    url: "/register",
+    onlyMobile: false,
+    },
+    {
+      id: "6",
+      title: "Account",
+      url: "/profile",
+      onlyMobile: false,
+      },*/
+];
